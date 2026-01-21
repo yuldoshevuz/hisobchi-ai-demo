@@ -1,0 +1,2 @@
+{"level":"\u001b[32minfo\u001b[39m","message":"Postgres connected","service":"user-service","timestamp":"2026-01-21T15:33:28.561Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"Server is running on: http://localhost:3000","service":"user-service","timestamp":"2026-01-21T15:33:28.565Z"}
