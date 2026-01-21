@@ -6,6 +6,24 @@ This project was built as a technical assignment. The goal is to demonstrate bac
 
 ---
 
+## Prerequisites
+
+Before running the project, make sure the following software is installed:
+
+- Node.js >= 22.x
+- npm >= 10.x
+- PostgreSQL >= 15
+- GNU Make
+- PM2 (global)
+
+Install PM2:
+
+```bash
+npm install -g pm2
+```
+
+---
+
 ## Tech Stack
 
 Backend:
