@@ -128,8 +128,6 @@ Linking flow:
 2. Bot asks for API token
 3. User sends the token
 4. Backend validates token and links:
-   - telegram_id
-   - telegram name
 
 The API token is used only for linking and is not persisted in the database.
 
