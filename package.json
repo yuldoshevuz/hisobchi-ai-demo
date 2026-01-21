@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "bot": "file:bot",
+    "hisobchi-ai-demo": "file:backend"
+  }
+}
