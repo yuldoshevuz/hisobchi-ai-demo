@@ -31,7 +31,7 @@ Redis is intentionally NOT used in this demo to keep the implementation minimal 
 
 ## Repository Structure
 
-.
+```
 ├── backend/
 │ ├── src/
 │ ├── prisma/
@@ -46,6 +46,7 @@ Redis is intentionally NOT used in this demo to keep the implementation minimal 
 ├── ecosystem.config.json
 ├── Makefile
 └── README.md
+```
 
 Backend API and Telegram bot are deployed as separate processes and communicate via HTTP.
 
@@ -57,15 +58,19 @@ Each project contains its own .env.example file.
 
 Backend (.env):
 
+```
 - HTTP_PORT
 - DATABASE_URL=postgres://DB_USER:DB_PASSWORD@DB_HOST:DB_PORT/DB_NAME
 - JWT_SECRET
 - JWT_EXPIRES_IN
+```
 
 Bot (.env):
 
+```
 - BOT_TOKEN
 - API_BASE_URL
+```
 
 ---
 
@@ -73,23 +78,33 @@ Bot (.env):
 
 Install dependencies for both backend and bot:
 
+```bash
 make install
+```
 
 Build projects:
 
+```bash
 make build
+```
 
 Start services using PM2:
 
+```bash
 make start
+```
 
 Stop services:
 
+```bash
 make stop
+```
 
 Restart services:
 
+```bash
 make restart
+```
 
 ---
 
@@ -263,4 +278,5 @@ Hisobni uzish:
 ## Author
 
 Muhammadali Yuldoshev
+
 Backend Developer
