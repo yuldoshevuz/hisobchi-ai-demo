@@ -59,12 +59,13 @@ That’s it 🙂
 .
 ├── backend/
 ├── bot/
-├── Dockerfile
 ├── docker-compose.yaml
 ├── docker-compose.override.yaml
 ├── docker-compose.prod.yaml
 ├── .env.db
 ├── .example.env.db
+├── .dockerignore
+├── .gitignore
 ├── Makefile
 └── README.md
 ```
