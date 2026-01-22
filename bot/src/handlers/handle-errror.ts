@@ -116,6 +116,9 @@ ${
         parse_mode: "HTML",
       });
 
+      ctx.session.isLinked = false;
+      ctx.session.accessToken = "";
+
       return;
     }
 

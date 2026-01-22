@@ -29,8 +29,5 @@ export const auth = async (ctx: MyContext, next: NextFunction) => {
     next();
   } catch (error) {
     handleError(error as Error, ctx);
-
-    delete ctx.session.isLinked;
-    delete ctx.session.accessToken;
   }
 };

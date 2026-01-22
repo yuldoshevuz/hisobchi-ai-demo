@@ -11,7 +11,7 @@ export const messages = {
   invalidLinkFormat:
     "❌ Buyruq noto‘g‘ri formatda.\n\nTo‘g‘ri format:\n👉 /link API_TOKEN\n\nMisol:\n/link eyJhbGciOiJIUzI1NiIsInR5cCI6...",
   invalidAccessToken:
-    "❌ <b>Token noto‘g‘ri yoki eskirgan.</b>\n\nIltimos, API’dan yangi token olib qayta urinib ko‘ring.\nAgar muammo davom etsa, qo‘llab-quvvatlashga murojaat qiling.",
+    "❌ <b>Token noto‘g‘ri yoki eskirgan.</b>\n\nIltimos, API’dan yangi token olib qayta urinib ko‘ring",
   serverError:
     "❌ Server bian aloqa yo'q. Agar muammo davom etsa, qo‘llab-quvvatlashga murojaat qiling.",
   linkSuccess:
