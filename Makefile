@@ -1,25 +1,24 @@
-install:
-	npm install ./backend
-	npm install ./bot
+dev:
+	docker compose up -d --build
+	docker compose logs -f
 
-build:
-	npm run build ./backend
-	npm run build ./bot
+prod:
+	docker compose -f docker-compose.yaml -f docker-compose.prod.yaml up -d --build
+	docker compose logs -f
 
-start:
-	pm2 start ecosystem.config.json
-	pm2 monit
+pull-prod:
+	git pull origin main
+	make prod
+
+down:
+	docker compose down
+
+log:
+	docker compose logs -f
 
 stop:
-	pm2 stop ecosystem.config.json
-	pm2 monit
+	docker compose stop
 
 restart:
-	pm2 restart ecosystem.config.json
-	pm2 monit
-
-delete:
-	pm2 delete ecosystem.config.json
-
-
-
+	docker compose restart
+	docker compose logs -f
