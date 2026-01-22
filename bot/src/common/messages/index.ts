@@ -8,6 +8,8 @@ export const messages = {
   initBot: (username: string) => `⚡️ t.me/${username} started successfully!`,
   startAfterLinking:
     "⚡️ Quyidagi buyruqlardan foydalanishingiz mumkin:\n\n• Xarajat qo'shish:\n👉 /expense <miqdor> <kategoriya>, [izoh]\n\n• Daromad qo‘shish:\n👉 /income <miqdor> <kategoriya> [izoh]\n\n• Hisobotni ko‘rish:\n👉 /summary 2026-01-01 2026-01-31 (ixtiyoriy)\n\n• Haftalik hisobot:\n👉 /week\n\n• Bugun uchun hisobot:\n👉 /day\n\n• Hisobni uzish:\n👉 /unlink",
+  invalidLinkFormat:
+    "❌ Buyruq noto‘g‘ri formatda.\n\nTo‘g‘ri format:\n👉 /link API_TOKEN\n\nMisol:\n/link eyJhbGciOiJIUzI1NiIsInR5cCI6...",
   invalidAccessToken:
     "❌ <b>Token noto‘g‘ri yoki eskirgan.</b>\n\nIltimos, API’dan yangi token olib qayta urinib ko‘ring.\nAgar muammo davom etsa, qo‘llab-quvvatlashga murojaat qiling.",
   serverError:

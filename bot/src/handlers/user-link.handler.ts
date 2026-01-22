@@ -10,7 +10,7 @@ export const userLinkHandler = async (ctx: MyContext) => {
   if (!ctx.from) return;
 
   if (!accessToken) {
-    await ctx.reply(messages.invalidAccessToken, {
+    await ctx.reply(messages.invalidLinkFormat, {
       parse_mode: "HTML",
     });
     return;
