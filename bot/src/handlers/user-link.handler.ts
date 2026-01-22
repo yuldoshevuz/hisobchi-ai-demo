@@ -5,7 +5,7 @@ import { MyContext } from "../interfaces/my-context.js";
 import { handleError } from "./handle-errror.js";
 
 export const userLinkHandler = async (ctx: MyContext) => {
-  const accessToken = ctx.match as string;
+  const accessToken = ctx.session.accessToken;
 
   if (!ctx.from) return;
 
