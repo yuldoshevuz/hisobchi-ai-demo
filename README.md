@@ -136,6 +136,63 @@ make down
 
 ---
 
+## Authentication
+
+```bash
+POST /api/auth/register
+```
+
+```bash
+POST /api/auth/login
+```
+
+JWT access token only.
+
+---
+
+## Telegram Linking
+
+```bash
+/start -> send API token -> account linked
+```
+
+Token is stored temporarily in bot session and cleared on expiration.
+
+---
+
+## Transactions
+
+```bash
+POST /api/transaction
+```
+
+Amount must be positive.
+Negative balance allowed.
+
+---
+
+## Tariff Logic
+
+FREE:
+
+- 50 transactions/month
+- monthly summary only
+
+PRO:
+
+- unlimited
+- daily, weekly, monthly, custom summary
+
+---
+
+## Summary
+
+```bash
+GET /api/transaction/summary
+```
+
+---
+
 ## 🤖 Telegram Bot Commands
 
 ```bash
