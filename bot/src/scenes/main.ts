@@ -10,6 +10,7 @@ import { onlyProUser } from "../common/middlewares/only-pro-user.js";
 import { summaryHandler } from "src/handlers/summary-handler.js";
 import { weeklySummaryHandler } from "src/handlers/weekly-summary.handler.js";
 import { dailySummaryHandler } from "src/handlers/daily-summary.handler.js";
+import { userUnlinkHandler } from "src/handlers/user-unlink.handler.js";
 
 export const mainScene = new Scene<MyContext>(SCENES.MAIN);
 
@@ -26,7 +27,7 @@ mainScene.wait("command").setup((scene) => {
 
   scene.command("start", (ctx) => ctx.scene.enter(SCENES.MAIN));
 
-  scene.command("unlink", userLinkHandler);
+  scene.command("unlink", userUnlinkHandler);
 
   scene.command(
     ["expense", "income"],
