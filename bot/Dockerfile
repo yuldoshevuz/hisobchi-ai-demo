@@ -9,7 +9,7 @@ WORKDIR /app
 # --- DEPS ---
 FROM base AS deps
 COPY package*.json ./
-RUN npm ci --omit=dev
+RUN npm install --omit=dev
 
 # --- DEV ---
 FROM base AS dev
