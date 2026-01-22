@@ -6,6 +6,9 @@ prod:
 	docker compose -f docker-compose.yaml -f docker-compose.prod.yaml up -d --build
 	docker compose logs -f
 
+migrate:
+	docker compose run --rm migrate
+
 pull-prod:
 	git pull origin main
 	make prod
