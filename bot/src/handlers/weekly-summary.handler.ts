@@ -6,14 +6,14 @@ import { handleError } from "./handle-errror.js";
 export const weeklySummaryHandler = async (ctx: MyContext) => {
   const { accessToken } = ctx.session;
 
-  if (!accessToken) return;
+  if (!accessToken || !ctx.chat) return;
 
   const from = new Date();
   const to = new Date();
 
   from.setDate(from.getDate() - 7);
 
-  const apiClient = new ApiClient(accessToken);
+  const apiClient = new ApiClient(accessToken, ctx.chat.id);
 
   const fromStr = from.toISOString();
   const toStr = to.toISOString();

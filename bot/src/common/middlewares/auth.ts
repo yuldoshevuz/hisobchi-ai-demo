@@ -5,6 +5,8 @@ import { ApiClient } from "../../api/api.client.js";
 import { handleError } from "../../handlers/handle-errror.js";
 
 export const auth = async (ctx: MyContext, next: NextFunction) => {
+  if (!ctx.chat) return;
+
   try {
     const { isLinked, accessToken } = ctx.session;
 
@@ -16,7 +18,7 @@ export const auth = async (ctx: MyContext, next: NextFunction) => {
       return;
     }
 
-    const apiClient = new ApiClient(accessToken);
+    const apiClient = new ApiClient(accessToken, ctx.chat.id);
 
     const user = await apiClient.getUserMe();
 
@@ -27,5 +29,8 @@ export const auth = async (ctx: MyContext, next: NextFunction) => {
     next();
   } catch (error) {
     handleError(error as Error, ctx);
+
+    delete ctx.session.isLinked;
+    delete ctx.session.accessToken;
   }
 };

@@ -39,4 +39,6 @@ export const messages = {
     "⚠️ Xatolik yuz berdi.\n\nIltimos, birozdan so‘ng qayta urinib ko‘ring.\nAgar muammo davom etsa, qo‘llab-quvvatlashga murojaat qiling.",
   invalidDateRange:
     "❌ Sana noto‘g‘ri formatda.\n\nTo‘g‘ri format:\nYYYY-MM-DD\n\nMasalan:\n/summary 2026-01-01 2026-01-31",
+  alreadyLinked:
+    "⚠️ <b>Ushbu hisob allaqachon boshqa telegram akkauntiga bog‘langan.</b>",
 };

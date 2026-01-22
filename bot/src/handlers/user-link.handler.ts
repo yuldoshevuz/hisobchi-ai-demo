@@ -16,7 +16,7 @@ export const userLinkHandler = async (ctx: MyContext) => {
     return;
   }
 
-  const apiClient = new ApiClient(accessToken);
+  const apiClient = new ApiClient(accessToken, ctx.from.id);
 
   const telegramId = ctx.from.id.toString();
 

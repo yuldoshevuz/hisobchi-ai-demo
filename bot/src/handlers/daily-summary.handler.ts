@@ -6,7 +6,7 @@ import { handleError } from "./handle-errror.js";
 export const dailySummaryHandler = async (ctx: MyContext) => {
   const { accessToken } = ctx.session;
 
-  if (!accessToken) return;
+  if (!accessToken || !ctx.chat) return;
 
   const from = new Date();
   const to = new Date();
@@ -14,7 +14,7 @@ export const dailySummaryHandler = async (ctx: MyContext) => {
   from.setHours(0, 0, 0, 0);
   to.setHours(23, 59, 59, 999);
 
-  const apiClient = new ApiClient(accessToken);
+  const apiClient = new ApiClient(accessToken, ctx.chat.id);
 
   const fromStr = from.toISOString();
   const toStr = to.toISOString();

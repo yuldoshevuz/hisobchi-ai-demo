@@ -4,6 +4,8 @@ import { handleError } from "./handle-errror.js";
 import { MyContext } from "../interfaces/my-context.js";
 
 export const userUnlinkHandler = async (ctx: MyContext) => {
+  if (!ctx.chat) return;
+
   const isLinked = ctx.session.isLinked;
   const accessToken = ctx.session.accessToken;
 
@@ -12,7 +14,7 @@ export const userUnlinkHandler = async (ctx: MyContext) => {
     return;
   }
 
-  const apiClient = new ApiClient(accessToken);
+  const apiClient = new ApiClient(accessToken, ctx.chat.id);
 
   try {
     await apiClient.unlinkUser();

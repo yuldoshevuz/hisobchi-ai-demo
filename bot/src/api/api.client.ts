@@ -9,25 +9,26 @@ import { ApiUser } from "../interfaces/api-user.js";
 export class ApiClient {
   private readonly client: AxiosInstance;
 
-  constructor(apiKey: string) {
+  constructor(apiKey: string, telegramId: number) {
     this.client = axios.create({
       baseURL: `${API_BASE_URL}/api`,
       headers: {
         Authorization: `Bearer ${apiKey}`,
+        "X-Telegram-Id": telegramId,
       },
     });
   }
 
-  async linkUser(telegramId: string) {
-    const result = await this.client.post("/user/link", {
+  async linkUser(telegramId: string): Promise<ApiUser> {
+    const result = await this.client.post<ApiUser>("/user/link", {
       telegram_id: telegramId,
     });
 
     return result.data;
   }
 
-  async unlinkUser(): Promise<void> {
-    const result = await this.client.post("/user/unlink");
+  async unlinkUser(): Promise<ApiUser> {
+    const result = await this.client.post<ApiUser>("/user/unlink");
 
     return result.data;
   }
@@ -49,7 +50,7 @@ export class ApiClient {
     return result.data;
   }
 
-  async getUserMe() {
+  async getUserMe(): Promise<ApiUser> {
     const result = await this.client.get<ApiUser>("/user/me");
 
     return result.data;

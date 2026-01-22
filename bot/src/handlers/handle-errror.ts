@@ -127,6 +127,14 @@ ${
       return;
     }
 
+    if (statusCode === 403) {
+      await ctx.reply(messages.alreadyLinked, {
+        parse_mode: "HTML",
+      });
+
+      return;
+    }
+
     await ctx.reply(messages.serverError);
 
     return;

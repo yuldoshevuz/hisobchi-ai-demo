@@ -3,6 +3,7 @@ import {
   CanActivate,
   ExecutionContext,
   UnauthorizedException,
+  ForbiddenException,
 } from '@nestjs/common';
 import { RequestWithUser } from 'src/interfaces/request-with-user';
 import { PrismaService } from 'src/modules/prisma/prisma.service';
@@ -19,7 +20,9 @@ export class AuthGuard implements CanActivate {
     const request = context.switchToHttp().getRequest<RequestWithUser>();
     const token = this.extractTokenFromHeader(request);
 
-    if (!token) {
+    const telegramId = request.headers['x-telegram-id'];
+
+    if (!token || !telegramId) {
       throw new UnauthorizedException();
     }
 
@@ -36,6 +39,10 @@ export class AuthGuard implements CanActivate {
 
     if (!user) {
       throw new UnauthorizedException();
+    }
+
+    if (user.telegram_id && user.telegram_id !== telegramId) {
+      throw new ForbiddenException();
     }
 
     request.user = user;

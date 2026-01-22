@@ -5,10 +5,13 @@ import { userLinkHandler } from "./handlers/user-link.handler.js";
 import { auth } from "./common/middlewares/auth.js";
 import { SCENES } from "./common/enums/scenes.js";
 import { initBot } from "./config/init-bot.js";
+import { privateChatOnly } from "./common/middlewares/private-chat-only.js";
 
 bot.use(session({ initial: () => ({}) }));
 bot.use(scenes.manager());
 bot.use(scenes);
+
+bot.use(privateChatOnly);
 
 bot.command("link", userLinkHandler);
 

@@ -7,23 +7,25 @@ import { LinkingUserInputDto } from './dtos/linkding-user-input.dto';
 export class UserService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async linkUser(user: IUser, data: LinkingUserInputDto) {
+  async linkUser(user: IUser, data: LinkingUserInputDto): Promise<IUser> {
     const updatedUser = await this.prisma.user.update({
       where: { id: user.id },
       data: {
         telegram_id: data.telegram_id,
       },
+      omit: { password: true },
     });
 
     return updatedUser;
   }
 
-  async unlinkUser(user: IUser) {
+  async unlinkUser(user: IUser): Promise<IUser> {
     const updatedUser = await this.prisma.user.update({
       where: { id: user.id },
       data: {
         telegram_id: null,
       },
+      omit: { password: true },
     });
 
     return updatedUser;

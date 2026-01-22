@@ -7,7 +7,7 @@ import { handleError } from "./handle-errror.js";
 export const addTransactionHandler = async (ctx: MyContext) => {
   const { amount, category, description, accessToken } = ctx.session;
 
-  if (!accessToken) return;
+  if (!accessToken || !ctx.chat) return;
 
   if (!amount || !category || !ctx.message?.text) {
     await ctx.reply(messages.invalidTransactionFormat);
@@ -19,7 +19,7 @@ export const addTransactionHandler = async (ctx: MyContext) => {
     ? TransactionType.expense
     : TransactionType.income;
 
-  const apiClient = new ApiClient(accessToken);
+  const apiClient = new ApiClient(accessToken, ctx.chat.id);
 
   try {
     const transaction = await apiClient.createTransaction({

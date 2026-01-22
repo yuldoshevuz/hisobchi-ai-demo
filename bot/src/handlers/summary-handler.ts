@@ -8,7 +8,7 @@ import { handleError } from "./handle-errror.js";
 export const summaryHandler = async (ctx: MyContext) => {
   const { user, accessToken } = ctx.session;
 
-  if (!accessToken) return;
+  if (!accessToken || !ctx.chat) return;
 
   const match = ctx.match as string;
 
@@ -42,7 +42,7 @@ export const summaryHandler = async (ctx: MyContext) => {
     query.to = toStr;
   }
 
-  const apiClient = new ApiClient(accessToken);
+  const apiClient = new ApiClient(accessToken, ctx.chat.id);
 
   try {
     const summary = await apiClient.getSummary(query);
