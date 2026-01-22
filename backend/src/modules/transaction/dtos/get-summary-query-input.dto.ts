@@ -1,6 +1,7 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { IsDate, IsOptional } from 'class-validator';
+import { endsOfMonth, startsOfMonth } from '../utils';
 
 export class GetSummaryQueryInputDto {
   @ApiPropertyOptional({
@@ -11,7 +12,7 @@ export class GetSummaryQueryInputDto {
   @IsDate()
   @Type(() => Date)
   @IsOptional()
-  from: Date;
+  from: Date = startsOfMonth(new Date());
 
   @ApiPropertyOptional({
     type: 'string',
@@ -21,5 +22,5 @@ export class GetSummaryQueryInputDto {
   @IsDate()
   @Type(() => Date)
   @IsOptional()
-  to: Date;
+  to: Date = endsOfMonth(new Date());
 }
